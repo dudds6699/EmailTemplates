@@ -1,0 +1,52 @@
+﻿@using System.Data.Entity.ModelConfiguration.Configuration
+@model List<EmailTemplatesCore.ViewModels.EmailTemplateViewModel>
+@{
+    ViewBag.Title = "View Current Email Templates";
+}
+
+<div class="row">
+    <div class="col-sm-4">
+        <h2>View Current Email Templates</h2>
+    </div>
+    <div class="col-sm-4 col-sm-offset-4">
+        @Html.ActionLink("Add Template", "AddEmailTemplate", "EmailTemplates", null, new {@class= "btn btn-primary"})
+    </div>
+</div>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    Type
+                </th>
+                <th>
+                    From
+                </th>
+                <th>
+                    Created On
+                </th>
+                <th> &nbsp; </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.Name
+                    </td>
+                    <td>
+                        @item.From
+                    </td>
+                    <td>
+                        @item.CreatedOn
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit Template", "EditEmailTemplate", "EmailTemplates", new { id = item.Id }, new { @class = "btn btn-primary" })
+                        @Html.ActionLink("Test Template", "TestEmailTemplate", "EmailTemplates", new { id = item.Id }, new { @class = "btn btn-primary" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

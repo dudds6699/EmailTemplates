@@ -1,0 +1,25 @@
+﻿@model EmailTemplatesCore.ViewModels.EmailTemplateViewModel
+@Html.HiddenFor(o => o.Id)
+<div class="form-group">
+    @Html.LabelFor(o => o.Subject, new { @class = "control-label col-sm-4" })
+    <div class="col-sm-8">
+        @Html.TextBoxFor(o => o.Subject, new { @class = "form-control" })
+        @Html.ValidationMessageFor(o => o.Subject)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(o => o.From, new { @class = "control-label col-sm-4" })
+    <div class="col-sm-8">
+        @Html.TextBoxFor(o => o.From, new { @class = "form-control" })
+        @Html.ValidationMessageFor(o => o.From)
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(o => o.Template, new { @class = "control-label col-sm-4" })
+    <div class="col-sm-8">
+        @Html.TextAreaFor(o => o.Template, new { @class = "form-control mceEditor" })
+        @Html.ValidationMessageFor(o => o.Template)
+    </div>
+</div>
